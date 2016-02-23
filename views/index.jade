@@ -1,6 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p Aaron Roles
+  p Please #{title} with your details
+  div(id="container")
+    form(name="Log In", action="/index", method="POST")
+      input(type="text", name="user", placeholder="Username...")
+      input(type="password", name="pass", placeholder="Password...")
+      input(type="submit", value="Log In")
