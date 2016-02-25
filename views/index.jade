@@ -3,7 +3,7 @@ extends layout
 block content
   p Please #{title} with your details
   div(id="container")
-    form(name="Log In", action="/index", method="POST")
+    form(name="Log In", action="/secrets", method="post")
       input(type="text", name="user", placeholder="Username...")
       input(type="password", name="pass", placeholder="Password...")
       input(type="submit", value="Log In")
