@@ -1,9 +1,12 @@
 extends layout
 
 block content
-  p Please #{title} with your details
+  title= title
+  h1 Please #{title} with your details
   div(id="container")
     form(name="Log In", action="/secrets", method="post")
       input(type="text", name="user", placeholder="Username...")
+      br
       input(type="password", name="pass", placeholder="Password...")
+      br
       input(type="submit", value="Log In")

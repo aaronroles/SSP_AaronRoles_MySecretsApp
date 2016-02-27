@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET secrets listing. */
+/* GET invalid listing. */
 router.get('/', function(req, res, next) {
-  res.render('secrets', { title: 'My Secrets App' });
+  res.render('invalid', { title: 'Invalid login'});
 });
 
 router.post('/index', function(req, res, next) {
