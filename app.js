@@ -4,12 +4,28 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var mysql = require('mysql');
 
 var routes = require('./routes/index');
 var secrets = require('./routes/secrets');
 var invalid = require('./routes/invalid');
 
 var app = express();
+
+/*
+// set up sql connection
+var sql = mysql.createConnection({
+    host: 'localhost',
+    user: 'aroles',
+    password: 'pass1'
+});
+
+sql.connect();
+
+sql.end(function(err){
+    console.log('db closed');
+});
+*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

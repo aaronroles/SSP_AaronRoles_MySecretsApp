@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var secrets = new Array();
+var secretId = 0;
+
 /* home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Log In' });
@@ -35,6 +38,16 @@ router.get('/invalid', function(req, res, next){
 
 router.post('/invalid', function(req, res, next) {
   res.render('invalid', { title: 'Invalid' });
+});
+
+/* add a secret */
+router.post('/addSecret', function(req, res, next){
+  var secret = {};
+  secret.id = secretId++;
+  secret.info = req.body.secret;
+  console.log(secret);
+  secrets.push(secret);
+  res.redirect('/');
 });
 
 module.exports = router;
