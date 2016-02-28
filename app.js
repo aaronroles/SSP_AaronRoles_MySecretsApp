@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//var mysql = require('mysql');
 
 var routes = require('./routes/index');
 var secrets = require('./routes/secrets');
@@ -14,10 +13,13 @@ var app = express();
 
 /*
 // set up sql connection
+var mysql = require('mysql');
+
 var sql = mysql.createConnection({
     host: 'localhost',
-    user: 'aroles',
-    password: 'pass1'
+    user: 'root',
+    password: 'password',
+    database: 'secrets_db'
 });
 
 sql.connect();
