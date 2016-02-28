@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var secrets = new Array();
+var mySecrets = new Array();
 var secretId = 0;
 
 /* home page. */
@@ -32,10 +32,6 @@ router.post('/secrets', function(req, res, next){
 });
 
 /* invalid page */
-router.get('/invalid', function(req, res, next){
-  res.render('invalid', { title: 'Invalid' });
-});
-
 router.post('/invalid', function(req, res, next) {
   res.render('invalid', { title: 'Invalid' });
 });
@@ -46,8 +42,10 @@ router.post('/addSecret', function(req, res, next){
   secret.id = secretId++;
   secret.info = req.body.secret;
   console.log(secret);
-  secrets.push(secret);
-  res.redirect('/');
+  mySecrets.push(secret);
+  res.render('secrets', {
+      mySecrets: mySecrets, 
+      title: 'My Secrets App'});
 });
 
 module.exports = router;
