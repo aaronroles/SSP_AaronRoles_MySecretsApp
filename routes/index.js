@@ -40,7 +40,7 @@ router.post('/invalid', function(req, res, next) {
 router.post('/addSecret', function(req, res, next){
   var secret = {};
   secret.id = secretId++;
-  secret.info = req.body.secret;
+  secret.info = req.body.theSecret;
   console.log(secret);
   mySecrets.push(secret);
   res.render('secrets', {
