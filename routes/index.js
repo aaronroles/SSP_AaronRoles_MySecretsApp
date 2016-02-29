@@ -48,4 +48,13 @@ router.post('/addSecret', function(req, res, next){
       title: 'My Secrets App'});
 });
 
+/* remove a secret */
+router.get('/deleteSecret/:id', function(req, res, next){
+    console.log("Delete secret " + req.params.id);
+    mySecrets.splice(req.params.id, 1);
+    res.render('secrets', {
+      mySecrets: mySecrets, 
+      title: 'My Secrets App'});
+});
+
 module.exports = router;
