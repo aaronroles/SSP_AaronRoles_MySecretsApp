@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var mySecrets = new Array();
+var mySecrets = [];
 var secretId = 0;
 
 /* home page. */
@@ -24,7 +24,7 @@ router.post('/index', function(req, res, next) {
 /* secrets page */
 router.post('/secrets', function(req, res, next){
     if(req.body.user == "aroles" && req.body.pass == "pass1"){
-       res.render('secrets', { title: 'My Secrets App' });
+       res.render('secrets', { mySecrets: mySecrets, title: 'My Secrets App' });
     }
     else{
        res.render('invalid', {title: 'Invalid Login'});
