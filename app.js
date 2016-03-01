@@ -9,24 +9,6 @@ var routes = require('./routes/index');
 
 var app = express();
 
-/*
-// set up sql connection
-var mysql = require('mysql');
-
-var sql = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'secrets_db'
-});
-
-sql.connect();
-
-sql.end(function(err){
-    console.log('db closed');
-});
-*/
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -71,6 +53,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
