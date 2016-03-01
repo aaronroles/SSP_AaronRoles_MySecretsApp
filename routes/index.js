@@ -57,7 +57,7 @@ router.get('/deleteSecret/:id', function(req, res, next){
             mySecrets.splice(i, 1);
         }
     }
-    //mySecrets.splice(req.params.id, 1);
+    
     res.render('secrets', {
       mySecrets: mySecrets, 
       title: 'My Secrets App'});
