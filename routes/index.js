@@ -50,8 +50,14 @@ router.post('/addSecret', function(req, res, next){
 
 /* remove a secret */
 router.get('/deleteSecret/:id', function(req, res, next){
-    console.log("Delete secret " + req.params.id);
-    mySecrets.splice(req.params.id, 1);
+    console.log("Delete secret with ID of " + req.params.id);
+    for(i in mySecrets){
+        if(req.params.id == mySecrets[i].id){
+            console.log("Deleting: " + mySecrets[i].id);
+            mySecrets.splice(i, 1);
+        }
+    }
+    //mySecrets.splice(req.params.id, 1);
     res.render('secrets', {
       mySecrets: mySecrets, 
       title: 'My Secrets App'});
