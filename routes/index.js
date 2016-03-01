@@ -42,8 +42,8 @@ router.post('/addSecret', function(req, res, next){
   secret.id = secretId++;
   secret.info = req.body.theSecret;
   secret.date = new Date();
-  console.log(secret);
   mySecrets.push(secret);
+  
   res.render('secrets', {
       mySecrets: mySecrets, 
       title: 'My Secrets App'});
@@ -51,10 +51,8 @@ router.post('/addSecret', function(req, res, next){
 
 /* remove a secret */
 router.get('/deleteSecret/:id', function(req, res, next){
-    console.log("Delete secret with ID of " + req.params.id);
     for(i in mySecrets){
         if(req.params.id == mySecrets[i].id){
-            console.log("Deleting: " + mySecrets[i].id);
             mySecrets.splice(i, 1);
         }
     }
@@ -64,8 +62,8 @@ router.get('/deleteSecret/:id', function(req, res, next){
       title: 'My Secrets App'});
 });
 
-/* sort secrets */
-router.post('/sorting', function(req, res, next){
+/* sort secrets (alphabet, date) */
+router.post('/sortByAlphabet', function(req, res, next){
         mySecrets.sort(function(a,b){
             var secretA = a.info.toLowerCase();
             var secretB = b.info.toLowerCase();
@@ -73,24 +71,22 @@ router.post('/sorting', function(req, res, next){
             if(secretA > secretB) return 1;
             else return 0;
         });
-        console.log(mySecrets);
+        
         res.render('secrets', {
             mySecrets: mySecrets, 
             title: 'My Secrets App'});
 });
 
-/*function sortSec(a, b) {
-        var secretA = a.info.toLowerCase();
-        var secretB = b.info.toLowerCase();
-        if(secretA < secretB){
-            return -1;
-        }
-        if(secretA > secretB){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-}*/
+router.post('/sortByDate', function(req, res, next){
+        mySecrets.sort(function(a,b){
+            var dateA = new Date(a.date);
+            var dateB = new Date(b.date);
+            return dateA - dateB;
+        });
+        
+        res.render('secrets', {
+            mySecrets: mySecrets, 
+            title: 'My Secrets App'});
+});
 
 module.exports = router;
