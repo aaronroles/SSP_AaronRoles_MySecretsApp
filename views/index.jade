@@ -3,8 +3,10 @@ extends layout
 block content
   title= title
   div(id="container")
-    h1 #{title}
+    h1(id="loginHeading") #{title}
     form(name="Log In", action="/secrets", method="post", id="loginForm")
+      label(for="user") Username
       input(type="text", name="user", placeholder="Username...", class="loginPage")
+      label(for="pass") Password
       input(type="password", name="pass", placeholder="Password...", class="loginPage")
-      input(type="submit", value="Log In", class="loginPage")
+      input(type="submit", value="Log In", class="loginPage", class="btn")

@@ -1,16 +1,16 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: whitesmoke;
+  margin: 0;
 }
 
 a {
-  color: blue;
+  color: #666;
   text-decoration: none;
 }
 
 a:hover{
-    color: red;
+    font-weight: bold;
 }
 
 .ul-style {
@@ -18,17 +18,22 @@ a:hover{
     padding: 0;
 }
 
+li{
+    list-style: none;
+    color: #333;
+}
+
 #container {
     width: 100%;
     height: auto;
-    background-color: royalblue;
-    padding: 1%;
+    background-color: #3b5998;
+    padding: 5px;
     position: fixed;
     top: 0px; 
     left: 0px;
 }
 
-h1{
+#loginHeading{
     margin: 0;
     color: #fff;
     float: left;   
@@ -40,6 +45,41 @@ h1{
 }
 
 .loginPage{
-    margin: 5px;
-    padding:2px;
+    margin: 6px;
+    padding: 3px;
+}
+
+.btn{
+    background-color: rgb(97, 125, 183);
+    color: #fff;
+    border:1px solid rgb(147, 147, 147);
+    font-weight: bold;
+    margin: 6px;
+    padding: 3px;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+label{
+    color: whitesmoke;
+    vertical-align: middle;
+}
+
+/* Secrets Page */
+
+#secretsContainer{
+    margin-left: 10%;
+    width:80%;
+    margin-right: 10%;
+    background-color: whitesmoke;
+    padding: 5px;
+    position: fixed;
+    top: 10px;
+}
+
+.secHeading{
+    margin: 0;
+    color: #333;
 }
