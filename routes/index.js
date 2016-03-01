@@ -63,4 +63,27 @@ router.get('/deleteSecret/:id', function(req, res, next){
       title: 'My Secrets App'});
 });
 
+/* sort secrets
+function sortSec(a, b) {
+        var secretA = a.info.toLowerCase();
+        var secretB = b.info.toLowerCase();
+        if(secretA < secretB){
+            return -1;
+        }
+        if(secretA > secretB){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+}
+
+router.get('/sorting', function(req, res, next){
+        mySecrets.sort(sortSec);
+        res.render('secrets', {
+            mySecrets: mySecrets, 
+            title: 'My Secrets App'});
+});
+*/
+
 module.exports = router;
